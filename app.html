@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
     <head>
-        <title>Hopskip Hundred: A Coding Project By Ryan Haley</title>
+        <title>BeepBoop: A Coding Project By Ryan Haley</title>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -27,7 +27,7 @@
         <!-- Nav section -->
         <nav class="navbar navbar-expand-md navbar-light fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand logoFont" href="/index.html"><img class="mb-1" src="img/HopSkipHundred-chroma.svg" width="30" class="d-inline-block align-text-top">HsH</a>
+                <a class="navbar-brand logoFont" href="/index.html"><img class="mb-1" src="img/beepboop-logo.svg" width="30" class="d-inline-block align-text-top">BeepBoop</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                     aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -44,10 +44,7 @@
                             <a class="nav-link" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Git Repo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" target="_blank" href="#">About</a>
+                            <a class="nav-link" href="https://github.com/project-haley/BeepBoop">Git Repo</a>
                         </li>
                     </ul>
                 </div>
@@ -55,34 +52,39 @@
         </nav>
         
         <!-- Main section -->
-        <main class="flex-shrink-0">
+        <main class="mt-4 flex-shrink-0">
             <div class="container">
                 <div class="row row-cols-1 row-cols-lg-2">
                     <div class="col-lg-4 col">
-                        <h1>Backtrack: A Coding Project</h1>
-                        <h4 class="lead">> Bring to Front</h4>
+                        <h1>Hopskip Hundred: A Coding Project</h1>
+                        <h4 class="lead">Really feel the evens.</h4>
                         <h2 class="mt-5 border-bottom border-2">Instructions</h2>
-                        <p>Enter any set of characters you like.  Hit the button, and I will reverse it.</p>
+                        <p>Enter a starting value and an ending value.  Press the button and the values will appear.</p>
                     </div>
-
                     <div class="col-lg-8 col">
-                        <form>
-                            <div>
-                                <input id="targetString" type="string" class="form-control" placeholder="Text Here" aria-label="Text Here">
+                        <h5>Enter Values</h5>
+
+                        <form class="row row-cols-2 gy-2 gx-3">
+                            <div class="col">
+                                <input id="firstValue" type="number" class="form-control" placeholder="Start Value" value="3" aria-label="Start Value">
                             </div>
-                            <div>
-                                <button id="btnSubmit" type="button" class="btn-btn-outline-dark btn-lg">Go!</button>
+                            <div class="col">
+                                <input id="secondValue" type="number" class="form-control" placeholder="End Value" value="5" aria-label="End Value">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button id="btnSubmit" type="button" class="btn btn-outline-dark btn-lg">Go!</button>
                             </div>
                         </form>
-                        <div>
-                            <h5 id="results">
-                                <!-- JS -->
-                            </h5>
+
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped bg-light">
+                                <tbody id="results">
+                                    <!-- JS -->
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-
-
-
                 </div>
             </div>
         </main>
@@ -97,7 +99,7 @@
                         </div>
                     </div>
                     <div class="col d-flex align-items-center justify-content-lg-center">
-                        <img height="36" src="/img/HopSkipHundred-chroma.svg">
+                        <img height="36" src="/img/beepboop-logo.svg">
                     </div>
                     <div class="col d-flex align-items-center justify-content-lg-end">
                         <div class="row ">
@@ -120,7 +122,7 @@
         </script>
         <script src="/js/site.js"></script>
         <script>
-            document.getElementById("btnSubmit").addEventListener("click", printReverseString);
+            document.getElementById("btnSubmit").addEventListener("click", generateTable);
         </script>
 
     </body>

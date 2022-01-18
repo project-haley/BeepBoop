@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Ryan Haley</title>
+    <title>BeepBoop: A Coding Project By Ryan Haley</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -28,7 +28,7 @@
     <!-- Nav section -->
     <nav class="navbar navbar-expand-md navbar-light fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand logoFont" href="/index.html"><img class="mb-1" src="img/HopSkipHundred-chroma.svg" width="30" class="d-inline-block align-text-top">HsH</a>
+            <a class="navbar-brand logoFont" href="/index.html"><img class="mb-1" src="img/beepboop-logo.svg" width="30" class="d-inline-block align-text-top">BeepBoop</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -45,11 +45,9 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Git Repo</a>
+                        <a class="nav-link" href="https://github.com/project-haley/BeepBoop">Git Repo</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About</a>
-                    </li>
+
                 </ul>
             </div>
         </div>
@@ -58,17 +56,61 @@
     <!-- Main section -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for Backtrack</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for BeepBoop</h2>
             <div class="row row-cols-1 row-cols-lg-2 ">
                 <div class="col-lg-8">
                     <pre class="line-numbers">
                         <code class="language-javascript">
-
+                            function getValues() {
+                                let firstValue = document.getElementById("firstValue").value;
+                                let secondValue = document.getElementById("secondValue").value;
+                            
+                                firstValue = parseInt(firstValue);
+                                secondValue = parseInt(secondValue);
+                            
+                                if (Number.isInteger(firstValue) && Number.isInteger(secondValue)) {
+                                    let numbers = [firstValue, secondValue];
+                                    return numbers;
+                                }
+                            
+                            }
+                            
+                            function generateTable() {
+                                let multiples = getValues();
+                                let tableResult = document.getElementById("results")
+                                let tableString = ""
+                                let className = "noMultiple"
+                                let beepBoopString = "beep"
+                            
+                                for (index = 1; index <= 100; index++) {
+                                    if (index % multiples[0] == 0 && index % multiples[1] != 0) {
+                                        className = "firstMultiple";
+                                        beepBoopString = "beep";
+                                    } else if (index % multiples[1] == 0 && index % multiples[0] != 0) {
+                                        className = "secondMultiple";
+                                        beepBoopString = "boop";
+                                    } else if (index % multiples[1] == 0 && index % multiples[0] == 0) {
+                                        className = "bothMultiple";
+                                        beepBoopString = "beepboop";
+                                    } else {
+                                        className = "noMultiple";
+                                        beepBoopString = `${index}`;
+                                    }
+                                    tableString += `&lt;tr>&lt;td class="${className}">${beepBoopString}&lt;/td>&lt;/tr>`;
+                            
+                                }
+                            
+                                tableResult.innerHTML = tableString;
+                            }
                         </code>
                     </pre>
                 </div>
                 <div class="col-lg-4">
-
+                    <p>The Code is structed in two functions.</p>
+                    <h5>getValues()</h5>
+                    <p>getValues() retrieves the two multiples to be used when determining which part of the output should be replaced with strings.  These values are returned a an array.</p>
+                    <h5>generateTable()</h5>
+                    <p>generateTable() calls getValues() and uses this array to determine which values from 0 to 100 are multiples of the input values.  A table is dynamically generated where these multiples are replaced with "beep," "boop," or "beepboop" depending on whether the value is a multiple  of one or both numbers. </p>
                 </div>
             </div>
         </div>
@@ -84,7 +126,7 @@
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-lg-center">
-                    <img height="36" src="/img/HopSkipHundred-chroma.svg">
+                    <img height="36" src="/img/beepboop-logo.svg">
                 </div>
                 <div class="col d-flex align-items-center justify-content-lg-end">
                     <div class="row ">
